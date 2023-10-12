@@ -1,0 +1,15 @@
+.input_name{
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+}
+/* .form_content{
+    height: 75vh;
+} */
+.body-height{
+    min-height: calc(100vh - 175px);
+}
+.author-list li {
+    border-bottom: 1px solid #c1c1c1;
+    padding: 0.7rem 0;
+}

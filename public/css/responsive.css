@@ -1,0 +1,272 @@
+@media screen and (max-width: 2560px) and (min-width: 992px) {
+  .navHide {
+    display: block !important;
+  }
+  .bigScreenHide {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .banner-img {
+    padding-left: 0 !important;
+    height: 100%;
+    padding-bottom: 1.5rem;
+  }
+  .language-sec-content {
+    padding: 0 !important;
+  }
+}
+@media screen and (max-width: 991px) {
+  .navHide {
+    display: none !important;
+  }
+  .best_selling_card {
+    padding: 3rem 0;
+  }
+  #bestseller_carousel .owl-nav {
+    position: absolute;
+    top: 246px;
+    right: 43%;
+    display: block !important;
+  }
+  .form_content {
+    padding-right: 0;
+  }
+  .address-sec {
+    padding: 0;
+    width: 100%;
+    background: transparent;
+  }
+  .addressContact {
+    background: rgba(288, 222, 200, 0.25);
+    margin-top: 2.5rem;
+  }
+  .language_content {
+    text-align: justify;
+  }
+  .detail_books {
+    display: none;
+  }
+  .detail_books_topSm {
+    display: block;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+  .active_smScreen {
+    display: block;
+  }
+  .author_details {
+    display: none;
+  }
+  .forDesktopShow {
+    display: none;
+  }
+  .forsmDevices {
+    display: block;
+  }
+  
+  .search_results {
+    max-width: 100%;
+}
+.Author_name{
+    left:0 !important;
+}
+  .book_description_field {
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+}
+@media screen and (max-width: 821px) {
+  /* / author sec  / */
+  .author_banner_content {
+    height: 55vh;
+  }
+  .banner_heading {
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+  .author_banner_content p {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  #bestseller_carousel .owl-nav {
+    right: 41%;
+  }
+  .banner_topImg {
+    display: none;
+  }
+  .address-sec {
+    display: block;
+  }
+  .related_cards {
+    padding: 0 3rem;
+  }
+  .related_cards img {
+    height: 250px;
+  }
+  .author_banner_content p {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 694px) {
+  .common_text_afterHeading {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 576px) {
+  .logo,
+  .footer_logo {
+    max-width: 76px;
+    height: 80px;
+    padding: 0.3rem;
+  }
+  /* / author sec  / */
+  .author_wise_books_card {
+    margin: 0 3rem;
+  }
+}
+@media screen and (max-width: 575px) {
+  /* / book listing sec  / */
+  .book_listing_card {
+    margin: 0 3.5rem;
+  }
+  /* / new release sec  / */
+  .coming_books_card,
+  .books_category_card {
+    padding: 0 4.5rem;
+  }
+  /* / author sec  / */
+  .author_banner_content {
+    height: 65vh;
+  }
+}
+
+@media screen and (max-width: 449px) {
+  #bestseller_carousel .owl-nav {
+    right: 38%;
+  }
+   .book_details_img {
+    height: 100%;
+    width: 73%;
+  }
+  .books_imgs img {
+    margin-right: 0.5rem;
+  }
+}
+@media screen and (max-width: 426px) {
+  .banner_text h3 {
+    font-size: 1.2rem;
+  }
+  .banner-img {
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+    height: 100%;
+  }
+  .language_text {
+    font-size: 16px;
+  }
+  .form_heading {
+    font-size: 33px;
+  }
+  .logo_social_links p {
+    font-size: 14px;
+  }
+  .footer_content {
+    padding-top: 1rem !important;
+  }
+  .banner_subscribe_btn button {
+    font-size: 1.2rem;
+  }
+
+  /* / author sec  / */
+  .author_banner_content {
+    height: 40vh;
+  }
+  .author_wise_books_card {
+    margin: 0 2rem;
+  }
+
+  /* / new release sec  / */
+  .coming_books_card,
+  .books_category_card {
+    padding: 0 3rem;
+  }
+  /* / book listing sec  / */
+  .book_listing_card {
+    margin: 0 3rem;
+  }
+  .books_details_allignment {
+    font-size: 0.9rem;
+  }
+  .category_heading {
+    background-size: 100%;
+    width: 100%;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .language_content {
+    padding-top: 2rem;
+  }
+}
+@media screen and (max-width: 398px) {
+  .related_cards {
+    padding: 0 0;
+  }
+}
+@media screen and (max-width: 370px) {
+  .search_book {
+    display: none !important;
+  }
+  .addressContact {
+    padding: 1rem;
+  }
+  .author_wise_books_card {
+    margin: 0 0;
+  }
+  /* / new release sec  / */
+  .coming_books_card {
+    padding: 0 2rem;
+  }
+  /* / book listing sec  / */
+  .book_listing_card {
+    margin: 0 0;
+  }
+
+  /* / category sec  / */
+  .books_category_card {
+    padding: 0 1rem;
+  }
+    .books_imgs {
+    height: 61vh;
+    overflow-y: scroll;
+  }
+}
+@media screen and (max-width: 360px) {
+  .books_imgs img {
+    width: 68%;
+    height: 100px;
+  }
+  .book_description_field {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    
+    padding-left:0 !important;
+    padding-right:0 !important;
+  }
+  .form_heading {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .category_heading {
+    padding: 1rem 2.3rem !important;
+  }
+}
+@media screen and (max-width: 330px) {
+  .form_heading {
+    font-size: 28px;
+  }
+}
