@@ -3,6 +3,7 @@
     const url_prefix = `{{ url('/search') }}`
     const search_popup_div = document.getElementById('search_popup_div')
     const search_popup = document.getElementById('search_popup')
+    
     const searchBook = async (e) => {
         const keyoword = e.value
         console.log(keyoword.length);

@@ -1,48 +1,51 @@
 @extends('site.layout')
 @section('site')
-    <!-- category search section  -->
-    <!--<section class="search_category py-3">-->
-    <!--    <div class="container">-->
-    <!--        <div class="category_search_field">-->
-    <!--            <form action="">-->
-    <!--                <div class="row">-->
-    <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
-    <!--                        <label for="SearchBook" class="text-secondary ps-1">Search Books</label>-->
-    <!--                        <input type="text" name="book_search" id="book_search" placeholder="Search"-->
-    <!--                            class="form-control" />-->
-    <!--                    </div>-->
-    <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
-    <!--                        <label for="sortBook" class="text-secondary ps-1">Sort by</label>-->
-    <!--                        <select name="book_sort" id="book_sort" class="form-select">-->
-    <!--                            <option value="Newest" selected>-->
-    <!--                                <span class="text-secondary">Newest</span>-->
-    <!--                            </option>-->
-    <!--                            <option value="Oldest">Oldest</option>-->
-    <!--                            <option value="Price_low_to_high">Price Low to High</option>-->
-    <!--                            <option value="Price_high_to_low">Price High to Low</option>-->
-    <!--                        </select>-->
-    <!--                    </div>-->
-    <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
-    <!--                        <label for="author" class="text-secondary ps-1">Author</label>-->
-    <!--                        <select name="searchByAuthor" id="searchByAuthor" class="form-select">-->
-    <!--                            <option value="Newest" selected>All Author</option>-->
-    <!--                            <option value="author_1">D. Abantikumar Sannal</option>-->
-    <!--                            <option value="author_2">D. Aloke Roy</option>-->
-    <!--                            <option value="author_3">Asish Ghosh</option>-->
-    <!--                        </select>-->
-    <!--                    </div>-->
-    <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
-    <!--                        <div class="d-flex align-items-end h-100 book_search_btn">-->
-    <!--                            <button class="w-100">Apply</button>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                </div>-->
-    <!--            </form>-->
-    <!--        </div>-->
-    <!--    </div>-->
-    <!--</section>-->
-    <!-- category search section  -->
+    <div>
 
+
+        <!-- category search section  -->
+        <!--<section class="search_category py-3">-->
+        <!--    <div class="container">-->
+        <!--        <div class="category_search_field">-->
+        <!--            <form action="">-->
+        <!--                <div class="row">-->
+        <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
+        <!--                        <label for="SearchBook" class="text-secondary ps-1">Search Books</label>-->
+        <!--                        <input type="text" name="book_search" id="book_search" placeholder="Search"-->
+        <!--                            class="form-control" />-->
+        <!--                    </div>-->
+        <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
+        <!--                        <label for="sortBook" class="text-secondary ps-1">Sort by</label>-->
+        <!--                        <select name="book_sort" id="book_sort" class="form-select">-->
+        <!--                            <option value="Newest" selected>-->
+        <!--                                <span class="text-secondary">Newest</span>-->
+        <!--                            </option>-->
+        <!--                            <option value="Oldest">Oldest</option>-->
+        <!--                            <option value="Price_low_to_high">Price Low to High</option>-->
+        <!--                            <option value="Price_high_to_low">Price High to Low</option>-->
+        <!--                        </select>-->
+        <!--                    </div>-->
+        <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
+        <!--                        <label for="author" class="text-secondary ps-1">Author</label>-->
+        <!--                        <select name="searchByAuthor" id="searchByAuthor" class="form-select">-->
+        <!--                            <option value="Newest" selected>All Author</option>-->
+        <!--                            <option value="author_1">D. Abantikumar Sannal</option>-->
+        <!--                            <option value="author_2">D. Aloke Roy</option>-->
+        <!--                            <option value="author_3">Asish Ghosh</option>-->
+        <!--                        </select>-->
+        <!--                    </div>-->
+        <!--                    <div class="col-sm-12 col-md-3 col-lg-3 pb-2">-->
+        <!--                        <div class="d-flex align-items-end h-100 book_search_btn">-->
+        <!--                            <button class="w-100">Apply</button>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </form>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--</section>-->
+        <!-- category search section  -->
+    </div>
     <!-- category wise books search  -->
     <section class="category_books py-5">
         <div class="container">
@@ -97,13 +100,14 @@
                         <div style='display: flex;gap:17px;'>
                             {{-- <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => 1]) }}">{{pageno}}</a> --}}
                             @for ($i = 1; $i <= $allbooks; $i++)
-                                <div class="page-item {{ $i == $pageno ? 'active' : '' }}" style='border: 2px solid #666;padding:12px; 
-                                background-color:{{$i == $pageno?'red':''}}'>
+                                <div class="page-item {{ $i == $pageno ? 'active' : '' }}"
+                                    style='border: 2px solid #666;padding:12px; 
+                                background-color:{{ $i == $pageno ? 'pink' : '' }}'>
                                     <a class="page-link"
                                         href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $i]) }}">{{ $i }}</a>
                                 </div>
                             @endfor
-                              </div>
+                        </div>
                         @if ($pageno < $allbooks)
                             <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno + 1]) }}"
                                 class="btn btn-info">Next</a>
@@ -116,7 +120,7 @@
                       [books=>books,category=>category]
                       
                       --}}
-                    {{-- <div class="col-sm-3 px-5 py-3">
+            {{-- <div class="col-sm-3 px-5 py-3">
                 <div class="books_category_card">
                   <a href="./book_details.html">
                     <div class="category_book_img">
@@ -269,7 +273,7 @@
                     </div>
                   </a>
                 </div>
-              </div> --}}
+            </div> --}}
                 </div>
             </div>
         </div>

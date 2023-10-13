@@ -39,9 +39,17 @@ Route::get('/books/category/{name}', [\App\Http\Controllers\Site\BookController:
 
 // search 
 Route::get('/search/{keyword}',[\App\Http\Controllers\Site\SearchController::class, 'search']);
+// =================== 
+Route::get('/author_search/{keyword}',[\App\Http\Controllers\Site\SearchController::class, 'author_search']);
+
+
+
+
 
 // site author routes
-Route::get('/author', [\App\Http\Controllers\Site\AuthorController::class, 'index'])->name('author.index');
+// Route::get('/author', [\App\Http\Controllers\Site\AuthorController::class, 'index'])->name('author.index');
+// added by madhu below code
+Route::get('/author/', [\App\Http\Controllers\Site\AuthorController::class, 'paginate'])->name('author.index');
 
 //axios store user enquiry
 Route::post('/user-enquiry', [\App\Http\Controllers\Site\HomeController::class, 'user_enquiry'])->name('user_enquiry');

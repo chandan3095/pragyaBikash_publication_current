@@ -12,15 +12,17 @@
     <!-- Remix icon cdn  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.min.css"
         integrity="sha512-13RM4Q4wPLiDEFNxKQbZMoyM3qR3eIsTYoXy6hJlqWmPzFCBLyxG3LGx/48N+sTcLxvN3IoThkZYxo3yuaGSvw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <!-- owl carousel cdn  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
         integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}" />
-    
-        {{-- favicon icon  --}}
+
+    {{-- favicon icon  --}}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('images/PLogo.png') }}">
 
@@ -62,7 +64,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-light" aria-current="page"
-                                        href="{{ route('author.index') }}">Authors</a>
+                                        href="{{ route('author.index') }}">
+                                        Authors</a>
+                                    {{-- <div>{{request()->route()->uri}}</div> --}}
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-light" href="{{ route('book.new_release') }}">New
@@ -83,8 +87,19 @@
                     <div class="col-6 col-sm-7 col-md-7 col-lg-3 p-0">
                         <div class="search_book d-flex align-items-center h-100">
                             <i class="ri-search-line"></i>
+                            {{-- added by madhu below code  --}}
+                            @if (request()->route()->uri=='author')
+                            <input 
+                            onkeyup="searchAuthor(this)"
+                             type="text" name="searchBook" id="searchBook"
+                            placeholder="Search Author..." class="w-100" />
+                                
+                            @else
                             <input onkeyup="searchBook(this)" type="text" name="searchBook" id="searchBook"
-                                placeholder="Search Your Book..." class="w-100" />
+                            placeholder="Search  Your Book..." class="w-100" />
+                                
+                            @endif
+                           
                         </div>
                         <!-- @@flip search popup div begin -->
                         <div class="d-flex justify-content-center search_box_show" id="search_popup_div">
@@ -150,6 +165,7 @@
                         </div>
                         <!-- @@flip search popup div end -->
                         @include('site.scripts.search')
+                        @include('site.scripts.authorsearch')
                     </div>
 
 
@@ -223,15 +239,15 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 d-flex align-items-center">
                     <div class="logo_social_links d-flex flex-column gap-4 pe-5">
-                       <div class="d-flex">
+                        <div class="d-flex">
                             <a href="{{ route('site.home') }}">
-                            <div class="footer_logo">
-                                <img src="{{ asset('images/PLogo.png') }}" alt="..." />
-                            </div>
-                        </a>
-                        <h4 class="footer_name">প্রজ্ঞাবিকাশ বামা পুস্তকালয়</h4>
+                                <div class="footer_logo">
+                                    <img src="{{ asset('images/PLogo.png') }}" alt="..." />
+                                </div>
+                            </a>
+                            <h4 class="footer_name">প্রজ্ঞাবিকাশ বামা পুস্তকালয়</h4>
 
-                       </div>
+                        </div>
                         <div>
                             <p class="text-white m-0">
                                 ৪বি, রমানাথ মজুমদার স্ট্রিট, (দোতলায়) কলকাতা-৭০০০০৯,
@@ -248,11 +264,9 @@
                         <div class="w-100">
                             <h5 class="footer_heading">Support</h5>
                             <ul class="footer_link">
-                                 <li>
-                    <a href="#form-sec" class="text-decoration-none text-white"
-                      >Contact</a
-                    >
-                  </li>
+                                <li>
+                                    <a href="#form-sec" class="text-decoration-none text-white">Contact</a>
+                                </li>
                                 <li>
                                     <a href="{{ route('author.index') }}" class="text-white">Authors</a>
                                 </li>
@@ -264,11 +278,11 @@
                                 </li>
                             </ul>
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
-            <div class="copywrite d-flex flex-column justify-content-center align-items-center h-100">
+            <div class="copywrite d-flex flex-column justify-content-center align-items-center h-10">
                 <hr class="w-100" />
                 <p class="text-light text-center">
                     &copy;2023, PragyaBikash Publication, All Rights Reserved. -

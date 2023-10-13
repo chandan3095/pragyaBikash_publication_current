@@ -106,7 +106,8 @@
                                 <hr />
                                 <div class="d-flex justify-content-between">
                                     <span class="book_details_heading">ISBN Code</span>
-                                    <span>{{ $book->isbn_code }}</span>
+                                    {{-- <span>{{ $book->isbn_code }}</span> --}}
+                                    <span>{{isset($book->isbn_code) ? $book->isbn_code : '----' }}</span>
                                 </div>
                                 <hr />
                             </div>
