@@ -6,35 +6,42 @@
         console.log('second')
 
         const searchAuthor = async (e) => {
-            const keyoword = e.value
-            console.log(keyoword.length);
-            if (keyoword.length <= 3) {
+            const keyword = e.value
+            console.log(keyword);
+            if (keyword.length <= 0) {
                 search_popup_div2.classList.add('search_box_show')
                 return
             }
-            const url = `${urlprefix}/${keyoword}`
-            try {
-                const res = await axios.get(url)
-                console.log('res', res);
-                const data = res.data
-
-                console.log(data.authors)
-                // if no books found
-                if (data.length == 0) {
-                    console.log('no books found');
-                    search_popup_div2.classList.remove('search_box_show')
-                    search_popup2.innerHTML = makeHtml2({}, true)
-                    return
-                }
-                let html = ''
-                data.authors.forEach(author => {
-                    html += makeHtml2(author, true)
-                })
-                search_popup2.innerHTML = html
-                search_popup_div2.classList.remove('search_box_show')
-            } catch (error) {
-                console.log('Error', error);
+            console.log(event.keyCode);
+            if(event.keyCode===13){
+               console.log(keyword);
+               const url= `{{ route('author.index')}}?name=${encodeURI(keyword)}`
+               console.log(url);
+               window.location.href=url
             }
+            // const url = `${urlprefix}/${keyoword}`
+            // try {
+            //     const res = await axios.get(url)
+            //     console.log('res', res);
+            //     const data = res.data
+
+            //     console.log(data.authors)
+            //     // if no books found
+            //     if (data.length == 0) {
+            //         console.log('no books found');
+            //         search_popup_div2.classList.remove('search_box_show')
+            //         search_popup2.innerHTML = makeHtml2({}, true)
+            //         return
+            //     }
+            //     let html = ''
+            //     data.authors.forEach(author => {
+            //         html += makeHtml2(author, true)
+            //     })
+            //     search_popup2.innerHTML = html
+            //     search_popup_div2.classList.remove('search_box_show')
+            // } catch (error) {
+            //     console.log('Error', error);
+            // }
         }
         // const makeHtml2 = (row, no_data = false) => {
         //     console.log(row, "hbhb.likj")
