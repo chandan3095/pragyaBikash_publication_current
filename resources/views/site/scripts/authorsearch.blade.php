@@ -8,16 +8,16 @@
         const searchAuthor = async (e) => {
             const keyword = e.value
             console.log(keyword);
-            if (keyword.length <= 0) {
-                search_popup_div2.classList.add('search_box_show')
-                return
-            }
+            // if (keyword.length <= 0) {
+            //     search_popup_div2.classList.add('search_box_show')
+            //     return
+            // }
             console.log(event.keyCode);
-            if(event.keyCode===13){
-               console.log(keyword);
-               const url= `{{ route('author.index')}}?name=${encodeURI(keyword)}`
-               console.log(url);
-               window.location.href=url
+            if (event.keyCode === 13) {
+                console.log(keyword);
+                const url = `{{ route('author.index') }}?name=${encodeURI(keyword)}`
+                console.log(url);
+                window.location.href = url
             }
             // const url = `${urlprefix}/${keyoword}`
             // try {
@@ -47,28 +47,28 @@
         //     console.log(row, "hbhb.likj")
         //     if (no_data) {
         //         return `<li class="d-flex justify-content-center align-items-center">
-        //                             <div class="search_resilts_row d-flex gap-3">
-        //                                 <img src="" alt="" />
-        //                                 <div class="d-flex align-items-center">
-                                        
-        //                                     <p class="m-0">No data found</p>
-        //                                 </div>
-        //                             </div>
-        //                         </li>
-        //                         <hr class="m-1" />`
+    //                             <div class="search_resilts_row d-flex gap-3">
+    //                                 <img src="" alt="" />
+    //                                 <div class="d-flex align-items-center">
+
+    //                                     <p class="m-0">No data found</p>
+    //                                 </div>
+    //                             </div>
+    //                         </li>
+    //                         <hr class="m-1" />`
         //     }
         //     const format = `<li class="d-flex justify-content-start align-items-center">
-        //                                     <a href="{{ url('/book/${row.slug}') }}" class="text-decoration-none text-dark">
-        //                             <div class="search_resilts_row d-flex gap-3">
-        //                                 <img src="${row.images[0].image_public}" alt="" />
-        //                                 <div class="">
-        //                                     <h5 class="m-0">${row.name_bengali} </h5>
-        //                                     <p>${row.author.name_bengali}</p>
-        //                                 </div>
-        //                             </div>
-        //                         </a>
-        //                         </li>
-        //                         <hr class="m-1" />`
+    //                                     <a href="{{ url('/book/${row.slug}') }}" class="text-decoration-none text-dark">
+    //                             <div class="search_resilts_row d-flex gap-3">
+    //                                 <img src="${row.images[0].image_public}" alt="" />
+    //                                 <div class="">
+    //                                     <h5 class="m-0">${row.name_bengali} </h5>
+    //                                     <p>${row.author.name_bengali}</p>
+    //                                 </div>
+    //                             </div>
+    //                         </a>
+    //                         </li>
+    //                         <hr class="m-1" />`
         //     return format
         // }
     </script>

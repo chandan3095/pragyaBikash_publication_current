@@ -60,7 +60,7 @@
                                         </div> --}}
                                     </ul>
                                 </div>
-                                
+
                             </div>
                         </div>
                     @empty
@@ -69,38 +69,37 @@
 
                     <div style='display: flex;justify-content: end; gap:10px;'>
 
-
-                      @if ($authors->currentPage()>=2)
-                          <a href="{{ $authors->previousPageUrl()}}"
-                              class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>
-                      @endif
-                      <div style='display: flex;gap:17px;'>
-                          {{-- <a href="{{ route('author.index', [ 'page' => 1]) }}">{{pageno}}</a> --}}
-                          @for ($i = 1; $i <= $authors->lastPage(); $i++)
-                              <div class="page-item {{ $i == $authors->currentPage() ? 'active' : '' }}"
-                                  style='border: 1px solid #7a1a09; padding:12px 16px; 
+                        @if ($authors->currentPage() >= 2)
+                            <a href="{{ $authors->previousPageUrl() }}&name={{ request()->name ?? '' }}"
+                                class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>
+                        @endif
+                        <div style='display: flex;gap:17px;'>
+                            {{-- <a href="{{ route('author.index', [ 'page' => 1]) }}">{{pageno}}</a> --}}
+                            @for ($i = 1; $i <= $authors->lastPage(); $i++)
+                                <div class="page-item {{ $i == $authors->currentPage() ? 'active' : '' }}"
+                                    style='border: 1px solid #7a1a09; padding:12px 16px;
                               background-color:{{ $i == $authors->currentPage() ? '#7a1a09' : '' }};
-                              color:{{ $i == $authors->currentPage() ? '#fff' : '#7a1a09'}};'>
-                                  <a class="page-link"
-                                      href="{{ $authors->url($i) }}">{{ $i }}</a>
-                              </div>
-                          @endfor
-                      </div>
-                      @if ($authors->currentPage()>=1 && $authors->currentPage()!= $authors->lastPage())
-                          <a href="{{ $authors->nextPageUrl() }}"
-                              class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>
-                      @endif
-                  </div>
+                              color:{{ $i == $authors->currentPage() ? '#fff' : '#7a1a09'}}'>
+                                    <a class="page-link"
+                                        href="{{ $authors->url($i) }}&name={{ request()->name ?? '' }}">{{ $i }}</a>
+                                </div>
+                            @endfor
+                        </div>
+                        @if ($authors->currentPage() >= 1 && $authors->currentPage() != $authors->lastPage())
+                            <a href="{{ $authors->nextPageUrl() }}&name={{ request()->name ?? '' }}"
+                                class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>
+                        @endif
+                    </div>
                     {{-- <div style="height: 1rem; background-color: red;">{{ $authors->links() }}</div> --}}
-         
+
                     {{-- <div class="commented">
                         //below
                     </div> --}}
                 </div>
-            </div> 
-            
+            </div>
+
         </div>
-    </section> 
+    </section>
     <!-- author wise books -->
 @endsection
 
