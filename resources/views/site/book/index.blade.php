@@ -55,8 +55,8 @@
                            <h5 class="fw-bold">{{ $category->name_bengali }}</h5>
                         {{-- <button> Show More... book.category</button> --}}
                         @if ($category->name_english)
-                            <a href="{{ route('book.category', ['name' => $category->name_english]) }}" class="btn btn-danger">Show
-                                More...</a> 
+                            <a href="{{ route('book.category', ['name' => $category->name_english]) }}" class="btn" style="background:var(--text-button-color);color:#fff;">Show
+                                More</a> 
                         @endif
                         </div>
 

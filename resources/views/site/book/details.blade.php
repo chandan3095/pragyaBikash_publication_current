@@ -55,7 +55,7 @@
                                 <div class="d-flex justify-content-between">
                                     <h4>{{ $book->bengali_name }}</h4>
 
-                                    <button type="button" class="btn btn-outline-secondary border-none"
+                                    <button type="button" class="btn details_enquiry_btn"
                                         data-bs-toggle="modal" data-bs-target="#exampleModal">
                                         Get This Book
                                     </button>

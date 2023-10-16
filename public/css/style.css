@@ -4,7 +4,25 @@
   --text-button-color: #7a1a09;
   --author-card-color: #f9e8de;
 }
-
+.details_enquiry_btn{
+   border: 1px solid var(--text-button-color);
+   color: var(--text-button-color);
+   transition: all .5s;
+}
+.details_enquiry_btn:hover{
+   background-color: var(--text-button-color);
+   color: var(--author-card-color);
+}
+.pagination_btn{
+   padding: 7px 10px;
+   border: 1px solid var(--text-button-color);
+   color: var(--text-button-color);
+   transition: all .5s;
+}
+.pagination_btn:hover{
+   background-color: var(--text-button-color);
+   color: #fff;
+}
 body {
   margin: 0;
   padding: 0;

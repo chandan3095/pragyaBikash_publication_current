@@ -59,7 +59,7 @@
                     @forelse ($categories as $category)
                         {{-- @forelse ($category->books as $book) --}}
                         @forelse ($books as $book)
-                            <div class="col-sm-6 col-md-4 col-lg-3 px-3 py-3">
+                            {{-- <div class="col-sm-6 col-md-4 col-lg-3 px-3 py-3">
                                 <div class="books_category_card">
                                     <a href="{{ route('book.view', ['slug' => $book->slug]) }}">
                                         <div class="category_book_img">
@@ -82,7 +82,9 @@
                                     </a>
                                 </div>
 
-                            </div>
+                            </div> --}}
+                            <x-site.shared.book :book="$book"/>
+                            
                         @empty
                             <p>No Books for this Category</p>
                         @endforelse
@@ -90,19 +92,19 @@
                         <p>No Books found for this category</p>
                     @endforelse
                     {{-- below code added by madhu  --}}
-                    <div style='display: flex;justify-content: space-between;'>
+                    <div style='display: flex; gap: 10px; justify-content:end;' class="py-3">
 
 
                         @if ($pageno > 1)
                             <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno - 1]) }}"
-                                class="btn btn-danger">Previous</a>
+                                class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>
                         @endif
                         <div style='display: flex;gap:17px;'>
                             {{-- <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => 1]) }}">{{pageno}}</a> --}}
                             @for ($i = 1; $i <= $allbooks; $i++)
                                 <div class="page-item {{ $i == $pageno ? 'active' : '' }}"
-                                    style='border: 2px solid #666;padding:12px; 
-                                background-color:{{ $i == $pageno ? 'pink' : '' }}'>
+                                    style='border: 1px solid #7a1a09;padding:12px 16px; 
+                                background-color:{{ $i == $pageno ? '#7a1a09' : '' }}; color:{{ $i == $pageno ? '#fff' : '#7a1a09'}}'>
                                     <a class="page-link"
                                         href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $i]) }}">{{ $i }}</a>
                                 </div>
@@ -110,7 +112,7 @@
                         </div>
                         @if ($pageno < $allbooks)
                             <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno + 1]) }}"
-                                class="btn btn-info">Next</a>
+                                class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>
                         @endif
                     </div>
                     {{-- //books 
