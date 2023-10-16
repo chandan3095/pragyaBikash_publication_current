@@ -88,18 +88,14 @@
                         <div class="search_book d-flex align-items-center h-100">
                             <i class="ri-search-line"></i>
                             {{-- added by madhu below code  --}}
-                            @if (request()->route()->uri=='author')
-                            <input 
-                            onkeyup="searchAuthor(this)"
-                             type="text" name="searchBook" id="searchBook"
-                            placeholder="Search Author..." class="w-100" />
-                                
+                            @if (request()->route()->uri == 'author')
+                                <input value="{{ request()->name ?? '' }}" onkeyup="searchAuthor(this)" type="text"
+                                    name="searchBook" id="searchBook" placeholder="Search Author..." class="w-100" />
                             @else
-                            <input onkeyup="searchBook(this)" type="text" name="searchBook" id="searchBook"
-                            placeholder="Search  Your Book..." class="w-100" />
-                                
+                                <input onkeyup="searchBook(this)" type="text" name="searchBook" id="searchBook"
+                                    placeholder="Search  Your Book..." class="w-100" />
                             @endif
-                           
+
                         </div>
                         <!-- @@flip search popup div begin -->
                         <div class="d-flex justify-content-center search_box_show" id="search_popup_div">

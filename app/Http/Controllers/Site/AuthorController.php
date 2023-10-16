@@ -11,9 +11,9 @@ class AuthorController extends Controller
    //added by madhu
    public function index(Request $request)
    {
-      if ($request->name && !empty($request->name)) {
-         $authors = Author::where('name_bengali', 'like', $request->name)
-            ->orWhere('name_english', 'like', $request->name)
+      if (!empty($request->name)) {
+         $authors = Author::where('name_bengali', 'like', "%{$request->name}%")
+            ->orWhere('name_english', 'like',"%{$request->name}%")
             ->paginate(8);
       } else {
          $authors = Author::paginate(8);

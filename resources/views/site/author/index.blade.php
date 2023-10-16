@@ -60,7 +60,7 @@
                                         </div> --}}
                                     </ul>
                                 </div>
-                                
+
                             </div>
                         </div>
                     @empty
@@ -70,36 +70,36 @@
                     <div style='display: flex;justify-content: space-between;'>
 
 
-                      @if ($authors->currentPage()>=2)
-                          <a href="{{ $authors->previousPageUrl()}}"
-                              class="btn btn-danger">Previous</a>
-                      @endif
-                      <div style='display: flex;gap:17px;'>
-                          {{-- <a href="{{ route('author.index', [ 'page' => 1]) }}">{{pageno}}</a> --}}
-                          @for ($i = 1; $i <= $authors->lastPage(); $i++)
-                              <div class="page-item {{ $i == $authors->currentPage() ? 'active' : '' }}"
-                                  style='border: 2px solid #666;padding:12px; 
+                        @if ($authors->currentPage() >= 2)
+                            <a href="{{ $authors->previousPageUrl() }}&name={{ request()->name ?? '' }}"
+                                class="btn btn-danger">Previous</a>
+                        @endif
+                        <div style='display: flex;gap:17px;'>
+                            {{-- <a href="{{ route('author.index', [ 'page' => 1]) }}">{{pageno}}</a> --}}
+                            @for ($i = 1; $i <= $authors->lastPage(); $i++)
+                                <div class="page-item {{ $i == $authors->currentPage() ? 'active' : '' }}"
+                                    style='border: 2px solid #666;padding:12px; 
                               background-color:{{ $i == $authors->currentPage() ? 'pink' : '' }}'>
-                                  <a class="page-link"
-                                      href="{{ $authors->url($i) }}">{{ $i }}</a>
-                              </div>
-                          @endfor
-                      </div>
-                      @if ($authors->currentPage()>=1 && $authors->currentPage()!= $authors->lastPage())
-                          <a href="{{ $authors->nextPageUrl() }}"
-                              class="btn btn-info">Next</a>
-                      @endif
-                  </div>
+                                    <a class="page-link"
+                                        href="{{ $authors->url($i) }}&name={{ request()->name ?? '' }}">{{ $i }}</a>
+                                </div>
+                            @endfor
+                        </div>
+                        @if ($authors->currentPage() >= 1 && $authors->currentPage() != $authors->lastPage())
+                            <a href="{{ $authors->nextPageUrl() }}&name={{ request()->name ?? '' }}"
+                                class="btn btn-info">Next</a>
+                        @endif
+                    </div>
                     {{-- <div style="height: 1rem; background-color: red;">{{ $authors->links() }}</div> --}}
-         
+
                     {{-- <div class="commented">
                         //below
                     </div> --}}
                 </div>
-            </div> 
-            
+            </div>
+
         </div>
-    </section> 
+    </section>
     <!-- author wise books -->
 @endsection
 
