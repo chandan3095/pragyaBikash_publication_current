@@ -67,19 +67,20 @@
                     @endforelse
 
 
-                    <div style='display: flex;justify-content: space-between;'>
+                    <div style='display: flex;justify-content: end; gap:10px;'>
 
 
                       @if ($authors->currentPage()>=2)
                           <a href="{{ $authors->previousPageUrl()}}"
-                              class="btn btn-danger">Previous</a>
+                              class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>
                       @endif
                       <div style='display: flex;gap:17px;'>
                           {{-- <a href="{{ route('author.index', [ 'page' => 1]) }}">{{pageno}}</a> --}}
                           @for ($i = 1; $i <= $authors->lastPage(); $i++)
                               <div class="page-item {{ $i == $authors->currentPage() ? 'active' : '' }}"
-                                  style='border: 2px solid #666;padding:12px; 
-                              background-color:{{ $i == $authors->currentPage() ? 'pink' : '' }}'>
+                                  style='border: 1px solid #7a1a09; padding:12px 16px; 
+                              background-color:{{ $i == $authors->currentPage() ? '#7a1a09' : '' }};
+                              color:{{ $i == $authors->currentPage() ? '#fff' : '#7a1a09'}};'>
                                   <a class="page-link"
                                       href="{{ $authors->url($i) }}">{{ $i }}</a>
                               </div>
@@ -87,7 +88,7 @@
                       </div>
                       @if ($authors->currentPage()>=1 && $authors->currentPage()!= $authors->lastPage())
                           <a href="{{ $authors->nextPageUrl() }}"
-                              class="btn btn-info">Next</a>
+                              class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>
                       @endif
                   </div>
                     {{-- <div style="height: 1rem; background-color: red;">{{ $authors->links() }}</div> --}}
