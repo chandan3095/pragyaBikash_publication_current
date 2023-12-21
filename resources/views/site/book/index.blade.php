@@ -73,8 +73,9 @@
                                                     alt=". . ." />
                                             </div>
                                             <div class="coming_book_details bg-light text-center">
-                                                <p class="m-0">{{ $book->bengali_name }} - ({{ $book->english_name }})
+                                                <p class="m-0">{{ $book->bengali_name }} 
                                                 </p>
+                                                <p class="text-lowercase">({{ $book->english_name }})</p>
                                                 @foreach ($book->authors as $author)
                                                     <p class="m-0">{{ $author->name_bengali }} </p>
                                                 @endforeach

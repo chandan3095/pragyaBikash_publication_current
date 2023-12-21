@@ -32,7 +32,7 @@ Route::get('/', [\App\Http\Controllers\Site\HomeController::class, 'index'])->na
 
 // site book routes
 Route::get('/book', [\App\Http\Controllers\Site\BookController::class, 'index'])->name('book.index');
-Route::get('/book/{slug}', [\App\Http\Controllers\Site\BookController::class, 'show'])->name('book.view');
+Route::get('/book/{slug?}', [\App\Http\Controllers\Site\BookController::class, 'show'])->name('book.view');
 //new release section
 Route::get('/books/new-release/', [\App\Http\Controllers\Site\BookController::class, 'new_release'])->name('book.new_release');
 Route::get('/books/category/{name}', [\App\Http\Controllers\Site\BookController::class, 'category'])->name('book.category');

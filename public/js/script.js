@@ -53,12 +53,12 @@ $('#bestseller_carousel').owlCarousel({
   let bigImg = document.querySelector(".previewon_hover");
 
 let smImg = document.querySelectorAll(".preview_img");
-console.log({ smImg });
+// console.log({ smImg });
 smImg.forEach((el) => {
     el.addEventListener("click", () => {
         bigImg.src = el.currentSrc;
     });
-    console.log({ el: el.currentSrc });
+    // console.log({ el: el.currentSrc });
 });
   
   // image hover overlay

@@ -261,7 +261,7 @@
                             <h5 class="footer_heading">Support</h5>
                             <ul class="footer_link">
                                 <li>
-                                    <a href="#form-sec" class="text-decoration-none text-white">Contact</a>
+                                    <a href="{{ route('site.home') }}#form-sec" class="text-decoration-none text-white">Contact</a>
                                 </li>
                                 <li>
                                     <a href="{{ route('author.index') }}" class="text-white">Authors</a>

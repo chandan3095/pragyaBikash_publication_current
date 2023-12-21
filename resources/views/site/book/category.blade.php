@@ -68,29 +68,82 @@
                         <p>No Books found for this category</p>
                     @endforelse
                     {{-- below code added by madhu  --}}
-                    <div style='display: flex; gap: 10px; justify-content:end;' class="py-3">
+                    <!--<div style='display: flex; gap: 10px; justify-content:end;' class="py-3">-->
 
 
-                        @if ($pageno > 1)
-                            <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno - 1]) }}"
-                                class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>
-                        @endif
-                        <div style='display: flex;gap:17px;'>
-                            {{-- <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => 1]) }}">{{pageno}}</a> --}}
-                            @for ($i = 1; $i <= $allbooks; $i++)
-                                <div class="page-item {{ $i == $pageno ? 'active' : '' }}"
-                                    style='border: 1px solid #7a1a09;padding:12px 16px; 
-                                background-color:{{ $i == $pageno ? '#7a1a09' : '' }}; color:{{ $i == $pageno ? '#fff' : '#7a1a09'}}'>
-                                    <a class="page-link"
-                                        href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $i]) }}">{{ $i }}</a>
-                                </div>
-                            @endfor
+                    <!--    @if ($pageno > 1)-->
+                    <!--        <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno - 1]) }}"-->
+                    <!--            class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>-->
+                    <!--    @endif-->
+                    <!--    <div style='display: flex;gap:17px;'>-->
+                    <!--        {{-- <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => 1]) }}">{{pageno}}</a> --}}-->
+                    <!--        @for ($i = 1; $i <= $allbooks; $i++)-->
+                    <!--            <div class="page-item {{ $i == $pageno ? 'active' : '' }}"-->
+                    <!--                style='border: 1px solid #7a1a09;padding:12px 16px; -->
+                    <!--            background-color:{{ $i == $pageno ? '#7a1a09' : '' }}; color:{{ $i == $pageno ? '#fff' : '#7a1a09'}}'>-->
+                    <!--                <a class="page-link"-->
+                    <!--                    href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $i]) }}">{{ $i }}</a>-->
+                    <!--            </div>-->
+                    <!--        @endfor-->
+                    <!--    </div>-->
+                    <!--    @if ($pageno < $allbooks)-->
+                    <!--        <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno + 1]) }}"-->
+                    <!--            class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>-->
+                    <!--    @endif-->
+                    <!--</div>-->
+                    
+                    <div style='display: flex; gap: 10px; justify-content:center; align-items:center;' class="py-3">
+
+                            <!--@if ($pageno > 1)-->
+                            <!--    <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno - 1]) }}"-->
+                            <!--        class="pagination_btn text-decoration-none"><i class="ri-arrow-left-double-line fs-4"></i></a>-->
+                            <!--@endif-->
+                        
+                            <div style='display: flex;gap:17px;'>
+                              
+                        
+                                @php
+                                    $start = max(1, $pageno - 2);
+                                    $end = min($allbooks, $pageno + 2);
+                                @endphp
+                        
+                                @if ($start > 1)
+                                    <div class="page-item" style='border: 1px solid #7a1a09;padding:12px 16px;'>
+                                        <a class="page-link"
+                                            href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => 1]) }}">1</a>
+                                    </div>
+                                    @if ($start > 2)
+                                        <div class="ellipsis d-flex align-items-center" aria-hidden="true">...</div>
+                                    @endif
+                                @endif
+                        
+                                @for ($i = $start; $i <= $end; $i++)
+                                    <div class="page-item {{ $i == $pageno ? 'active' : '' }}"
+                                        style='border: 1px solid #7a1a09;padding:12px 16px; 
+                                        background-color:{{ $i == $pageno ? '#7a1a09' : '' }}; color:{{ $i == $pageno ? '#fff' : '#7a1a09'}}'>
+                                        <a class="page-link"
+                                            href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $i]) }}">{{ $i }}</a>
+                                    </div>
+                                @endfor
+                        
+                                @if ($end < $allbooks)
+                                    @if ($end < $allbooks - 1)
+                                        <div class="ellipsis d-flex align-items-center" aria-hidden="true">...</div>
+                                    @endif
+                                    <div class="page-item" style='border: 1px solid #7a1a09;padding:12px 16px;'>
+                                        <a class="page-link"
+                                            href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $allbooks]) }}">{{ $allbooks }}</a>
+                                    </div>
+                                @endif
+                            </div>
+                        
+                            <!--@if ($pageno < $allbooks)-->
+                            <!--    <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno + 1]) }}"-->
+                            <!--        class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>-->
+                            <!--@endif-->
                         </div>
-                        @if ($pageno < $allbooks)
-                            <a href="{{ route('book.category', ['name' => $categories[0]->name_english, 'page' => $pageno + 1]) }}"
-                                class="pagination_btn text-decoration-none"><i class="ri-arrow-right-double-line fs-4"></i></a>
-                        @endif
-                    </div>
+
+
                     {{-- //books 
                       
                       

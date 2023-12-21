@@ -3,18 +3,18 @@
         const urlprefix = `{{ url('/author_search') }}`
         const search_popup_div2 = document.getElementById('search_popup_div')
         const search_popup2 = document.getElementById('search_popup')
-        console.log('second')
+        // console.log('second')
 
         const searchAuthor = async (e) => {
             const keyword = e.value
-            console.log(keyword);
+            // console.log(keyword);
             // if (keyword.length <= 0) {
             //     search_popup_div2.classList.add('search_box_show')
             //     return
             // }
             console.log(event.keyCode);
             if (event.keyCode === 13) {
-                console.log(keyword);
+                // console.log(keyword);
                 const url = `{{ route('author.index') }}?name=${encodeURI(keyword)}`
                 console.log(url);
                 window.location.href = url

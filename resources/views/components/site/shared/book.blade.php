@@ -4,7 +4,7 @@
 
     <div class="col-sm-6 col-md-4 col-lg-3 px-3 py-3">
         <div class="books_category_card">
-            <a href="{{ route('book.view', ['slug' => $book->slug]) }}">
+            <a href="{{ route('book.view', ['slug' => $book->slug ?? '']) }}">
                 <div class="category_book_img">
                     <img src="{{ asset('/storage/' . ($book->images[0]->image ?? '')) }}"
                         alt=". . ." />

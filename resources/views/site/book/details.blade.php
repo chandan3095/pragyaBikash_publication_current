@@ -89,14 +89,13 @@
                                     </div>
                                     <hr />
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <span class="book_details_heading">Cost Price</span>
-                                    <span class="Price">₹ {{ $book->cost_price }}.00</span>
-                                </div>
-                                <hr />
+
                                 <div class="d-flex justify-content-between">
                                     <span class="book_details_heading">Sale Price</span>
-                                    <span class="Price">₹ {{ $book->sale_price }}.00</span>
+                                    <div class="d-flex gap-2">
+                                        <span class="Price text-decoration-line-through text-danger">₹ {{ $book->cost_price }}.00</span>
+                                        <span class="Price">₹ {{ $book->sale_price }}.00</span>
+                                    </div>
                                 </div>
                                 <hr />
                                 <div class="d-flex justify-content-between">
@@ -306,7 +305,7 @@
             formData.append('_token', _token);
             formData.append('book_id', book_id);
 
-            console.log('formdata', ...formData);
+            // console.log('formdata', ...formData);
             
 
             const url = "{{ url('/book-enquiry') }}";
